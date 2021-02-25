@@ -1,6 +1,5 @@
 package com.design.smartparking.model;
 
-import io.swagger.models.auth.In;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
