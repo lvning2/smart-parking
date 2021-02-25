@@ -6,11 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @author GuoKF
- * @date 2020-11-17
- */
-
 public class CGlibMapper {
 
     private static final ConcurrentHashMap<String, BeanCopier> mapCaches = new ConcurrentHashMap<>();
