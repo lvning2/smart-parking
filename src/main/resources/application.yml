@@ -6,9 +6,9 @@ spring:
     name: smart-parking
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://127.0.0.1:3306/smart-parking?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-    username: root
-    password: 123456
+    url: jdbc:mysql://rm-bp1187f11t883erltdo.mysql.rds.aliyuncs.com:3306/smart-parking?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: lvning
+    password: Lvning107754
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     properties:

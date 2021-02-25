@@ -2,16 +2,15 @@ package com.design.smartparking.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * 公告
  */
 
+@Entity
+@Table(name = "notice")
 public class Notice {
 
     @Id
