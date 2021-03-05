@@ -15,7 +15,7 @@ public class CarService {
     private CarRepository carRepository;
 
     public List<Car> list(Long userId){
-        return carRepository.findAllByUserId(userId);
+        return carRepository.findAllByUserIdOrderByCreateDate(userId);
     }
 
     @Transactional
