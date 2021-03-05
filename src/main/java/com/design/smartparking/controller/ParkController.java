@@ -29,10 +29,11 @@ public class ParkController {
         return Result.success();
     }
 
-    @GetMapping("info")
+    @GetMapping("/info")
     public Result getParkInfo(@RequestParam String objectId){
         return Result.success(parkService.getParkInfo(objectId));
     }
+
 
 
 
