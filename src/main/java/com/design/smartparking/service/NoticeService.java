@@ -18,6 +18,11 @@ public class NoticeService {
     @Autowired
     private NoticeRepository noticeRepository;
 
+    public Page<Notice> list(Integer page,Integer size){
+        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by("createDate"));
+        return noticeRepository.findAll(pageRequest);
+    }
+
     @Transactional
     public void save(Notice notice){
         if (notice.getId()==null){ // 保存
@@ -36,9 +41,5 @@ public class NoticeService {
         noticeRepository.deleteById(id);
     }
 
-    public Page<Notice> list(Integer page,Integer size){
-        PageRequest pageRequest = PageRequest.of(page, size, Sort.by("createDate"));
-        return noticeRepository.findAll(pageRequest);
-    }
 
 }
