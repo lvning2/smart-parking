@@ -20,6 +20,10 @@ public class Car {
 
     private String description;
 
+    private String brand;  // 品牌
+
+    private String model;  // 型号
+
     private Long userId;
 
     private Long objectId;
@@ -82,5 +86,21 @@ public class Car {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }

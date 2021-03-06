@@ -24,8 +24,8 @@ public class CarController {
     }
 
     @PostMapping("/save")
-    public Result save(){
-
+    public Result save(@RequestBody Car car){
+        carService.save(car);
         return Result.success();
     }
 
