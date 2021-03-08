@@ -15,6 +15,9 @@ public class Park {
     private Long id;
 
     @Column
+    private String objectId;  // 腾讯地图 停车场 ID
+
+    @Column
     private Integer totalSpace; // 总车位数
 
     @Column
@@ -40,9 +43,6 @@ public class Park {
 
     @Column
     private String category;
-
-    @Column
-    private String objectId;
 
     @Column
     private String lat;
@@ -156,23 +156,57 @@ public class Park {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+
+    public Integer getTotalSpace() {
+        return totalSpace;
+    }
+
+    public void setTotalSpace(Integer totalSpace) {
+        this.totalSpace = totalSpace;
+    }
+
+    public Integer getRemainSpace() {
+        return remainSpace;
+    }
+
+    public void setRemainSpace(Integer remainSpace) {
+        this.remainSpace = remainSpace;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
 }
 
 
 //{
 //        "_distance": 141.53999999999999,
 //        "ad_info": {
-//        "adcode": 410103,
-//        "city": "郑州市",
-//        "district": "二七区",
-//        "province": "河南省"
+    //        "adcode": 410103,
+    //        "city": "郑州市",
+    //        "district": "二七区",
+    //        "province": "河南省"
 //        },
 //        "address": "河南省郑州市二七区政通路",
 //        "category": "汽车:停车场",
 //        "id": "9440654831185350547",
 //        "location": {
-//        "lat": 34.724555000000002,
-//        "lng": 113.638795
+    //        "lat": 34.724555000000002,
+    //        "lng": 113.638795
 //        },
 //        "tel": "",
 //        "title": "升龙国际中心E区23号楼停车场",
