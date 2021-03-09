@@ -12,7 +12,7 @@ public class IntoParkRequest {
 
     private Byte type;
 
-    private Long userId;
+    private String userId;
 
     public Long getParkId() {
         return parkId;
@@ -32,6 +32,14 @@ public class IntoParkRequest {
 
     public Long getCarId() {
         return carId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public void setCarId(Long carId) {

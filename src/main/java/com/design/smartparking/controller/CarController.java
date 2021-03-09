@@ -18,7 +18,7 @@ public class CarController {
     private CarService carService;
 
     @GetMapping("/list/{userId}")
-    private Result list(@PathVariable Long userId){
+    private Result list(@PathVariable String userId){
         List<Car> list = carService.list(userId);
         return Result.success(list);
     }
@@ -32,6 +32,12 @@ public class CarController {
     @DeleteMapping("/delete/{id}")
     public Result delete(Long id){
         carService.delete(id);
+        return Result.success();
+    }
+
+    @PostMapping("/setCurrent")
+    public Result setCurrent(Long id,String userId){
+        carService.setCurrent(id,userId);
         return Result.success();
     }
 

@@ -24,9 +24,11 @@ public class Car {
 
     private String model;  // 型号
 
-    private Long userId;
+    private String userId;
 
     private Long objectId;
+
+    private Boolean isCurrent;  // 当前车
 
     @CreationTimestamp
     @Column(name = "create_date", columnDefinition = "datetime COMMENT '创建时间'")
@@ -64,11 +66,11 @@ public class Car {
         this.description = description;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -102,5 +104,13 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public Boolean getCurrent() {
+        return isCurrent;
+    }
+
+    public void setCurrent(Boolean current) {
+        isCurrent = current;
     }
 }

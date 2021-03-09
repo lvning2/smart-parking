@@ -4,6 +4,7 @@ import com.design.smartparking.model.Car;
 import com.design.smartparking.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.rmi.runtime.Log;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -15,7 +16,7 @@ public class CarService {
     @Autowired
     private CarRepository carRepository;
 
-    public List<Car> list(Long userId){
+    public List<Car> list(String userId){
         return carRepository.findAllByUserIdOrderByCreateDate(userId);
     }
 
@@ -42,6 +43,19 @@ public class CarService {
     @Transactional
     public void delete(Long id){
         carRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void setCurrent(Long id,String userId){
+        List<Car> cars = carRepository.findAllByUserIdOrderByCreateDate(userId);
+        for (Car car : cars) {
+            if (car.getId()==id){
+                car.setCurrent(true);
+            }else {
+                car.setCurrent(false);
+            }
+            carRepository.save(car);
+        }
     }
 
 }

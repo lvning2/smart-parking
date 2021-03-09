@@ -1,5 +1,7 @@
 package com.design.smartparking.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -27,6 +29,12 @@ public class EzStop {
     private Double cost; // 费用
 
     private String parkName;
+
+    private String userId;
+
+    @CreationTimestamp
+    @Column(name = "create_date", columnDefinition = "datetime COMMENT '创建时间'")
+    private Date createDate;
 
     public Long getId() {
         return id;
@@ -98,5 +106,21 @@ public class EzStop {
 
     public void setType(Byte type) {
         this.type = type;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }
