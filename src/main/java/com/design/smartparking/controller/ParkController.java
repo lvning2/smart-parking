@@ -39,8 +39,8 @@ public class ParkController {
 
     @PostMapping("/into")  // 出入场
     public Result intoPark(@RequestBody IntoParkRequest intoParkRequest){
-        parkService.intoPark(intoParkRequest);
-        return Result.success();
+        String s = parkService.intoPark(intoParkRequest);
+        return Result.success(s);
     }
 
     @GetMapping("/record") // 出入场记录查询

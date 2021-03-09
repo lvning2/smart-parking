@@ -58,9 +58,10 @@ public class ParkService {
     }
 
     @Transactional
-    public void intoPark(IntoParkRequest intoParkRequest){
+    public String intoPark(IntoParkRequest intoParkRequest){
 
         Park parkByObjectId = parkRepository.findParkByObjectId(intoParkRequest.getParkObjectId());
+
 
         EzStop ezStop = new EzStop();
         ezStop.setParkId(intoParkRequest.getParkId());
@@ -71,14 +72,29 @@ public class ParkService {
         ezStop.setCreateDate(new Date());
         if (intoParkRequest.getType()==(byte)10){ // 入场
             ezStop.setIntoTime(new Date());
-            parkByObjectId.setRemainSpace(parkByObjectId.getRemainSpace()-1);
+            if (parkByObjectId!=null){
+                if (parkByObjectId.getRemainSpace()!=null) {
+                    if (parkByObjectId.getRemainSpace()>0){
+                        parkByObjectId.setRemainSpace(parkByObjectId.getRemainSpace()-1);
+                    }else {
+                        return "该停车场已经停满";
+                    }
+                }
+            }
         }
         if (intoParkRequest.getType()==(byte)20){ // 出场
             ezStop.setOutTime(new Date());
-            parkByObjectId.setRemainSpace(parkByObjectId.getRemainSpace()+1);
+            if (parkByObjectId!=null){
+                if (parkByObjectId.getRemainSpace()!=null) {
+                    if (parkByObjectId.getRemainSpace()<=parkByObjectId.getTotalSpace()){
+                        parkByObjectId.setRemainSpace(parkByObjectId.getRemainSpace()+1);
+                    }
+                }
+            }
         }
         parkRepository.save(parkByObjectId);
         ezStopRepository.save(ezStop);
+        return "成功";
     }
 
     public Page<EzStop> record(Integer page, Integer size, String userId){
