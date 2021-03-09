@@ -86,6 +86,7 @@ public class ParkService {
                 if (parkByObjectId.getRemainSpace()!=null) {
                     if (parkByObjectId.getRemainSpace()>0){
                         parkByObjectId.setRemainSpace(parkByObjectId.getRemainSpace()-1);
+                        parkRepository.save(parkByObjectId);
                     }else {
                         return "该停车场已经停满";
                     }
@@ -98,11 +99,12 @@ public class ParkService {
                 if (parkByObjectId.getRemainSpace()!=null) {
                     if (parkByObjectId.getRemainSpace()<=parkByObjectId.getTotalSpace()){
                         parkByObjectId.setRemainSpace(parkByObjectId.getRemainSpace()+1);
+                        parkRepository.save(parkByObjectId);
                     }
                 }
             }
         }
-        parkRepository.save(parkByObjectId);
+
         ezStopRepository.save(ezStop);
         return "成功";
     }
