@@ -1,5 +1,6 @@
 package com.design.smartparking.controller;
 
+import com.design.smartparking.dto.EzStopDto;
 import com.design.smartparking.dto.IntoParkRequest;
 import com.design.smartparking.dto.Result;
 import com.design.smartparking.model.EzStop;
@@ -47,7 +48,7 @@ public class ParkController {
     public Result record(@RequestParam(defaultValue = "1") Integer page,
                          @RequestParam(defaultValue = "10") Integer size,
                          @RequestParam String userId){
-        Page<EzStop> record = parkService.record(page, size, userId);
+        Page<EzStopDto> record = parkService.record(page, size, userId);
         return Result.success(record);
     }
 
