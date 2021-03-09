@@ -59,6 +59,9 @@ public class ParkService {
 
     @Transactional
     public void intoPark(IntoParkRequest intoParkRequest){
+
+        Park parkByObjectId = parkRepository.findParkByObjectId(intoParkRequest.getParkObjectId());
+
         EzStop ezStop = new EzStop();
         ezStop.setParkId(intoParkRequest.getParkId());
         ezStop.setCarId(intoParkRequest.getCarId());
@@ -68,10 +71,13 @@ public class ParkService {
         ezStop.setCreateDate(new Date());
         if (intoParkRequest.getType()==(byte)10){ // 入场
             ezStop.setIntoTime(new Date());
+            parkByObjectId.setRemainSpace(parkByObjectId.getRemainSpace()-1);
         }
         if (intoParkRequest.getType()==(byte)20){ // 出场
             ezStop.setOutTime(new Date());
+            parkByObjectId.setRemainSpace(parkByObjectId.getRemainSpace()+1);
         }
+        parkRepository.save(parkByObjectId);
         ezStopRepository.save(ezStop);
     }
 
