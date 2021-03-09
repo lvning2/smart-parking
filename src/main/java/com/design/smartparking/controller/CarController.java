@@ -42,7 +42,7 @@ public class CarController {
     }
 
     @GetMapping("/getCurrent")
-    public Result getCurrent(String userId){
+    public Result getCurrent(@RequestParam String userId){
         Car car = carService.getCurrent(userId);
         return Result.success(car);
     }
