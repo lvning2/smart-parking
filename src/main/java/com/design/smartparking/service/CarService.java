@@ -58,4 +58,17 @@ public class CarService {
         }
     }
 
+    public Car getCurrent(String userId){
+        List<Car> cars = carRepository.findAllByUserIdOrderByCreateDate(userId);
+        for (Car car : cars) {
+            if (car.getCurrent()){
+                return car;
+            }
+        }
+        if (cars.size()>0){
+            return cars.get(0);
+        }
+        return null;
+    }
+
 }

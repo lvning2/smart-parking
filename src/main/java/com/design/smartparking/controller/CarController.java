@@ -41,6 +41,12 @@ public class CarController {
         return Result.success();
     }
 
+    @GetMapping("/getCurrent")
+    public Result getCurrent(String userId){
+        Car car = carService.getCurrent(userId);
+        return Result.success(car);
+    }
+
 
 
 }
