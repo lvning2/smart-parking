@@ -1,5 +1,6 @@
 package com.design.smartparking.controller;
 
+import com.design.smartparking.dto.IntoParkRequest;
 import com.design.smartparking.dto.Result;
 import com.design.smartparking.model.Park;
 import com.design.smartparking.service.ParkService;
@@ -34,7 +35,11 @@ public class ParkController {
         return Result.success(parkService.getParkInfo(objectId));
     }
 
-
+    @PostMapping("/into")  // 出入场
+    public Result intoPark(@RequestBody IntoParkRequest intoParkRequest){
+        parkService.intoPark(intoParkRequest);
+        return Result.success();
+    }
 
 
 }

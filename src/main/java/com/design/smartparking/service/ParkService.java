@@ -1,6 +1,9 @@
 package com.design.smartparking.service;
 
+import com.design.smartparking.dto.IntoParkRequest;
+import com.design.smartparking.model.EzStop;
 import com.design.smartparking.model.Park;
+import com.design.smartparking.repository.EzStopRepository;
 import com.design.smartparking.repository.ParkRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -8,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -15,6 +19,9 @@ public class ParkService {
 
     @Autowired
     private ParkRepository parkRepository;
+
+    @Autowired
+    private EzStopRepository ezStopRepository;
 
     @Transactional
     public void save(Park park){
@@ -43,6 +50,23 @@ public class ParkService {
 
     public Park getParkInfo(String objectId){
         return parkRepository.findParkByObjectId(objectId);
+    }
+
+    @Transactional
+    public void intoPark(IntoParkRequest intoParkRequest){
+        EzStop ezStop = new EzStop();
+        ezStop.setParkId(intoParkRequest.getParkId());
+        ezStop.setCarId(intoParkRequest.getCarId());
+        ezStop.setParkName(intoParkRequest.getParkName());
+        ezStop.setParkObjectId(intoParkRequest.getParkObjectId());
+        ezStop.setType(intoParkRequest.getType());
+        if (intoParkRequest.getType()==(byte)10){ // 入场
+            ezStop.setIntoTime(new Date());
+        }
+        if (intoParkRequest.getType()==(byte)20){ // 出场
+            ezStop.setOutTime(new Date());
+        }
+        ezStopRepository.save(ezStop);
     }
 
 }
