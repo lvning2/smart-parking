@@ -4,7 +4,6 @@ import com.design.smartparking.model.Car;
 import com.design.smartparking.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sun.rmi.runtime.Log;
 
 import javax.transaction.Transactional;
 import java.util.List;

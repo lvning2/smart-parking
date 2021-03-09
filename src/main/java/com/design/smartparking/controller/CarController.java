@@ -18,7 +18,7 @@ public class CarController {
     private CarService carService;
 
     @GetMapping("/list/{userId}")
-    private Result list(@PathVariable String userId){
+    public Result list(@PathVariable String userId){
         List<Car> list = carService.list(userId);
         return Result.success(list);
     }
