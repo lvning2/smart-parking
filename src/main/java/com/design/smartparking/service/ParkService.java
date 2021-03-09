@@ -121,8 +121,8 @@ public class ParkService {
             Optional<Car> optionalCar = carRepository.findById(carId);
             optionalCar.ifPresent(car -> {
                 dto.setLicencePlate(car.getLicencePlate());
-                list.add(dto);
             });
+            list.add(dto);
         }
 
         PageImpl<EzStopDto> dtoPage = new PageImpl<>(list,ezStopPage.getPageable(), totalElements);
