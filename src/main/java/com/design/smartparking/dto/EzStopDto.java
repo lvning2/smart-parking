@@ -124,4 +124,22 @@ public class EzStopDto {
     public void setLicencePlate(String licencePlate) {
         this.licencePlate = licencePlate;
     }
+
+    @Override
+    public String toString() {
+        return "EzStopDto{" +
+                "id=" + id +
+                ", carId=" + carId +
+                ", parkId=" + parkId +
+                ", parkObjectId='" + parkObjectId + '\'' +
+                ", type=" + type +
+                ", intoTime=" + intoTime +
+                ", outTime=" + outTime +
+                ", cost=" + cost +
+                ", parkName='" + parkName + '\'' +
+                ", userId='" + userId + '\'' +
+                ", createDate=" + createDate +
+                ", licencePlate='" + licencePlate + '\'' +
+                '}';
+    }
 }

@@ -118,4 +118,20 @@ public class Car {
     public void setCurrent(Boolean current) {
         isCurrent = current;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", licencePlate='" + licencePlate + '\'' +
+                ", description='" + description + '\'' +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", userId='" + userId + '\'' +
+                ", objectId=" + objectId +
+                ", isCurrent=" + isCurrent +
+                ", createDate=" + createDate +
+                '}';
+    }
 }

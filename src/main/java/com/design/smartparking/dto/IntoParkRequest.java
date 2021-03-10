@@ -71,4 +71,17 @@ public class IntoParkRequest {
     public void setParkTitle(String parkTitle) {
         this.parkTitle = parkTitle;
     }
+
+    @Override
+    public String toString() {
+        return "IntoParkRequest{" +
+                "parkId=" + parkId +
+                ", parkObjectId='" + parkObjectId + '\'' +
+                ", carId=" + carId +
+                ", parkName='" + parkName + '\'' +
+                ", type=" + type +
+                ", userId='" + userId + '\'' +
+                ", parkTitle='" + parkTitle + '\'' +
+                '}';
+    }
 }

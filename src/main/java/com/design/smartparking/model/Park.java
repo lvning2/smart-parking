@@ -194,7 +194,27 @@ public class Park {
         this.description = description;
     }
 
-
+    @Override
+    public String toString() {
+        return "Park{" +
+                "id=" + id +
+                ", objectId='" + objectId + '\'' +
+                ", totalSpace=" + totalSpace +
+                ", remainSpace=" + remainSpace +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", city='" + city + '\'' +
+                ", district='" + district + '\'' +
+                ", province='" + province + '\'' +
+                ", address='" + address + '\'' +
+                ", category='" + category + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lng='" + lng + '\'' +
+                ", tel='" + tel + '\'' +
+                ", title='" + title + '\'' +
+                ", createDate=" + createDate +
+                '}';
+    }
 }
 
 

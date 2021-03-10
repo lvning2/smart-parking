@@ -138,4 +138,22 @@ public class EzStop {
     public void setParkTitle(String parkTitle) {
         this.parkTitle = parkTitle;
     }
+
+    @Override
+    public String toString() {
+        return "EzStop{" +
+                "id=" + id +
+                ", carId=" + carId +
+                ", parkId=" + parkId +
+                ", parkObjectId='" + parkObjectId + '\'' +
+                ", type=" + type +
+                ", intoTime=" + intoTime +
+                ", outTime=" + outTime +
+                ", cost=" + cost +
+                ", parkName='" + parkName + '\'' +
+                ", parkTitle='" + parkTitle + '\'' +
+                ", userId='" + userId + '\'' +
+                ", createDate=" + createDate +
+                '}';
+    }
 }
