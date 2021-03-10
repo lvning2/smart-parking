@@ -23,6 +23,12 @@ public class CarController {
         return Result.success(list);
     }
 
+    @GetMapping("/info/{id}")
+    public Result getById(@PathVariable Long id){
+        Car info = carService.info(id);
+        return Result.success(info);
+    }
+
     @PostMapping("/save")
     public Result save(@RequestBody Car car){
         carService.save(car);
@@ -30,13 +36,13 @@ public class CarController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public Result delete(Long id){
+    public Result delete(@PathVariable Long id){
         carService.delete(id);
         return Result.success();
     }
 
     @PostMapping("/setCurrent")
-    public Result setCurrent(Long id,String userId){
+    public Result setCurrent(@RequestParam Long id,@RequestParam String userId){
         carService.setCurrent(id,userId);
         return Result.success();
     }
@@ -46,6 +52,8 @@ public class CarController {
         Car car = carService.getCurrent(userId);
         return Result.success(car);
     }
+
+
 
 
 

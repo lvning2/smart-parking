@@ -110,7 +110,7 @@ public class ParkService {
     }
 
     public Page<EzStopDto> record(Integer page, Integer size, String userId){
-        PageRequest pageRequest = PageRequest.of(page-1, size, Sort.by("createDate"));
+        PageRequest pageRequest = PageRequest.of(page-1, size, Sort.by("createDate").descending());
         Page<EzStop> ezStopPage = ezStopRepository.findAllByUserId(userId, pageRequest);
 
         long totalElements = ezStopPage.getTotalElements();

@@ -19,6 +19,11 @@ public class CarService {
         return carRepository.findAllByUserIdOrderByCreateDate(userId);
     }
 
+    public Car info(Long id){
+        return carRepository.findById(id).orElse(null);
+    }
+
+
     @Transactional
     public void save(Car car){
         if (car.getId()==null){  // 添加
