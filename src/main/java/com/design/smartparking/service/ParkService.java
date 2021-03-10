@@ -74,6 +74,7 @@ public class ParkService {
         EzStop ezStop = new EzStop();
         ezStop.setParkId(intoParkRequest.getParkId());
         ezStop.setCarId(intoParkRequest.getCarId());
+        ezStop.setUserId(intoParkRequest.getUserId());
         ezStop.setParkName(intoParkRequest.getParkName());
         ezStop.setParkObjectId(intoParkRequest.getParkObjectId());
         ezStop.setType(intoParkRequest.getType());

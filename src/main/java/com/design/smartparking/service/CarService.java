@@ -22,6 +22,11 @@ public class CarService {
     @Transactional
     public void save(Car car){
         if (car.getId()==null){  // 添加
+            String userId = car.getUserId();
+            List<Car> cars = carRepository.findAllByUserIdOrderByCreateDate(userId);
+            if (cars!=null&&cars.size()==0){
+                car.setCurrent(true);
+            }
             carRepository.save(car);
         }else { // 修改
             Optional<Car> optionalCar = carRepository.findById(car.getId());
@@ -33,6 +38,7 @@ public class CarService {
                 c.setName(car.getName());
                 c.setUserId(car.getUserId());
                 c.setObjectId(car.getObjectId());
+                c.setCurrent(car.getCurrent());
                 carRepository.save(c);
             });
         }

@@ -19,7 +19,7 @@ public class NoticeService {
     private NoticeRepository noticeRepository;
 
     public Page<Notice> list(Integer page,Integer size){
-        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by("createDate"));
+        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by("createDate").descending());
         return noticeRepository.findAll(pageRequest);
     }
 
