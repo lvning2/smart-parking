@@ -29,6 +29,8 @@ public class EzStopDto {
 
     private String licencePlate;
 
+    private String parkTitle;
+
     public Long getId() {
         return id;
     }
@@ -123,6 +125,14 @@ public class EzStopDto {
 
     public void setLicencePlate(String licencePlate) {
         this.licencePlate = licencePlate;
+    }
+
+    public String getParkTitle() {
+        return parkTitle;
+    }
+
+    public void setParkTitle(String parkTitle) {
+        this.parkTitle = parkTitle;
     }
 
     @Override
