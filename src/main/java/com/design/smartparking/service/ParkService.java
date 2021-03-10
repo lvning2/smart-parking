@@ -10,7 +10,6 @@ import com.design.smartparking.repository.CarRepository;
 import com.design.smartparking.repository.EzStopRepository;
 import com.design.smartparking.repository.ParkRepository;
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.boot.model.source.spi.Orderable;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,7 +18,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Table;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
