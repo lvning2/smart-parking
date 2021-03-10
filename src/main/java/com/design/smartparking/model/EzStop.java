@@ -30,6 +30,8 @@ public class EzStop {
 
     private String parkName;
 
+    private String parkTitle;
+
     private String userId;
 
     @CreationTimestamp
@@ -122,5 +124,13 @@ public class EzStop {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public String getParkTitle() {
+        return parkTitle;
+    }
+
+    public void setParkTitle(String parkTitle) {
+        this.parkTitle = parkTitle;
     }
 }

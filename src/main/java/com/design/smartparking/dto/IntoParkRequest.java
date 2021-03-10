@@ -14,6 +14,8 @@ public class IntoParkRequest {
 
     private String userId;
 
+    private String parkTitle;
+
     public Long getParkId() {
         return parkId;
     }
@@ -60,5 +62,13 @@ public class IntoParkRequest {
 
     public void setType(Byte type) {
         this.type = type;
+    }
+
+    public String getParkTitle() {
+        return parkTitle;
+    }
+
+    public void setParkTitle(String parkTitle) {
+        this.parkTitle = parkTitle;
     }
 }

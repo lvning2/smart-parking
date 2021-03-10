@@ -79,6 +79,7 @@ public class ParkService {
         ezStop.setParkName(intoParkRequest.getParkName());
         ezStop.setParkObjectId(intoParkRequest.getParkObjectId());
         ezStop.setType(intoParkRequest.getType());
+        ezStop.setParkTitle(intoParkRequest.getParkTitle());
         ezStop.setCreateDate(new Date());
         if (intoParkRequest.getType()==(byte)10){ // 入场
             ezStop.setIntoTime(new Date());
