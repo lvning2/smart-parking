@@ -5,6 +5,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * 停车记录
+ */
+
+
 @Entity
 @Table(name = "ez_stop")
 public class EzStop {
